@@ -1,16 +1,59 @@
-# weather_dashboard
+# Real-Time Weather Dashboard
 
-A new Flutter project.
+A Flutter weather application that combines current weather information, offline city search, and live lightning updates through a structured BLoC and repository architecture.
+
+## Features
+
+- Current weather conditions
+- City search and suggestions
+- Offline city-search support
+- Live lightning-strike updates
+- Distance calculation for nearby lightning
+- Automatic weather polling
+- WebSocket connection monitoring
+- Automatic reconnection handling
+- Application lifecycle management
+- Light and dark themes
+- Loading, connected, disconnected, and error states
+
+## Architecture
+
+The project uses BLoC to separate the interface from application logic.
+
+Main components include:
+
+- **Weather BLoC** — controls weather requests and states
+- **Lightning BLoC** — processes live WebSocket updates
+- **City Search BLoC** — manages city suggestions and filtering
+- **Theme BLoC** — controls the application theme
+- **Repositories** — abstract weather, lightning, and city data
+- **Lifecycle coordinator** — safely starts and stops live operations
+
+## Technologies
+
+- Flutter
+- Dart
+- BLoC
+- REST APIs
+- WebSockets
+- Repository pattern
+- Flutter DevTools
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Configure the required weather and lightning data providers, then run:
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub get
+flutter analyze
+flutter test
+flutter run
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Reliability
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The application detects interrupted WebSocket connections and attempts to reconnect safely. Active timers, subscriptions, and network operations are managed according to the Flutter application lifecycle.
+
+## What I Learned
+
+This project strengthened my understanding of BLoC state management, REST and WebSocket communication, stream subscriptions, connection recovery, lifecycle safety, repository abstraction, and real-time application profiling.
